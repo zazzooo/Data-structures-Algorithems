@@ -19,25 +19,25 @@ is_palyndrome('Anna')
 is_palyndrome('bob')
 
 is_palyndrome('Lorenzo')
-
-
-def guess_number():
-    r = random.randint(1,51)
-    guess = int(input('Your guess? '))
-    l = 0
-    while guess != r:
-
-        if guess > r:
-            print('Your guess is bigger')
-        else:
-            print('Your guess is lower')
-        new_guess = int(input('New guess? '))
-        l += 1
-        guess = new_guess
-    print(f'You get the number in {l} guesses')
-
-guess_number()
-
+#
+#
+# def guess_number():
+#     r = random.randint(1,51)
+#     guess = int(input('Your guess? '))
+#     l = 0
+#     while guess != r:
+#
+#         if guess > r:
+#             print('Your guess is bigger')
+#         else:
+#             print('Your guess is lower')
+#         new_guess = int(input('New guess? '))
+#         l += 1
+#         guess = new_guess
+#     print(f'You get the number in {l} guesses')
+#
+# guess_number()
+#
 
 def nim_game_computer_pick(sticks):
     if sticks < 4:
@@ -68,5 +68,5 @@ def nim_game():
             print(f'There are {sticks} remain')
             your_move = int(input('Your pick? '))
             sticks = sticks - your_move
-    print('You lost')
+
 nim_game()
