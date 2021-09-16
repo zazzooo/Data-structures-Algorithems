@@ -43,10 +43,6 @@ def nim_game_computer_pick(sticks):
     if sticks < 4:
         move = sticks
         print(f'The computer picks {sticks} sticks and wins')
-    elif sticks % 4 == 0:
-        print('Comuputer loose :(')
-        move = random.randint(1,3)
-        print(f'Computer picks {move}')
     elif (sticks-1) % 4 == 0:
         move = 1
         print(f'Computer picks {move}')
@@ -56,10 +52,15 @@ def nim_game_computer_pick(sticks):
     elif (sticks-3) % 4 == 0:
         move = 3
         print(f'Computer picks {move}')
+    else:
+        print('If you are smart, the comuputer loose')
+        move = random.randint(1,3)
+        print(f'Computer picks {move}')
     return move
 
 def nim_game():
-    sticks = 12
+    sticks = 13
+    print(f'The game starts with {sticks} sticks')
     first_move = int(input('Your pick? '))
     if first_move not in range(1,4):
         first_move = int(input('Invalid pick. Your pick? '))
@@ -74,5 +75,7 @@ def nim_game():
             if your_move not in range(1,4):
                 your_move = int(input('Invalid pick. Your pick? '))
             sticks = sticks - your_move
+            if sticks == 0:
+                print('Congrats, you won!')
 
 nim_game()
