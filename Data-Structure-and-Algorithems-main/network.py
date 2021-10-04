@@ -14,7 +14,6 @@ G.add_edge(9, 7, weight = 2)
 G.add_edge(10, 7, weight = 2)
 G.add_edge(2, 7, weight = 2)
 
-G.edge
 
 print(G[1])
 for nodi in G[1]:
@@ -23,5 +22,6 @@ for nodi in G[1]:
 # print(G[1])
 # G.add_edge(1, 2)
 #
+print(nx.shortest_path(G, source=None, target=None, weight=None, method='dijkstra'))
 nx.draw(G)
 plt.show()
