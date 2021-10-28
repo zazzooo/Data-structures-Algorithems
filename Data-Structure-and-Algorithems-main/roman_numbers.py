@@ -52,3 +52,4 @@ def int_to_Roman(num):
 
 print(int_to_Roman(1342))
 print(int_to_Roman(9000))
+print(int_to_Roman(145))

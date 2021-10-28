@@ -1,5 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+import pandas as pd
 #
 # G = nx.Graph()
 #
@@ -26,7 +27,17 @@ import matplotlib.pyplot as plt
 # print(len(list(nx.simple_cycles(G))))
 #
 # print(nx.shortest_path(G, source= 1, target=7, weight=None, method='dijkstra'))
-G = nx.petersen_graph()
+# G = nx.petersen_graph()
+
+nodes = spark.read.csv("data/airports.csv", header=False)
+cleaned_nodes = (nodes.select("_c1", "_c3", "_c4", "_c6", "_c7")
+ .filter("_c3 = 'United States'")
+ .withColumnRenamed("_c1", "name")
+ .withColumnRenamed("_c4", "id")
+ .withColumnRenamed("_c6", "latitude")
+ .withColumnRenamed("_c7", "longitude")
+ .drop("_c3"))
+cleaned_nodes = cleaned_nodes[cleaned_nodes["id"] != "\\N"]
 
 nx.draw(G)
 plt.show()
